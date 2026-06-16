@@ -9,8 +9,9 @@ from pinecone import Pinecone
 embeddings = GoogleGenerativeAIEmbeddings(model="models/gemini-embedding-001")
 
 pc = Pinecone(api_key=os.getenv("PINECONE_API_KEY"))
-index = pc.Index("rag-index")
+index = pc.Index("rag-index1")
 
 vector_store = PineconeVectorStore(embedding=embeddings, index=index)
 
+print(vector_store.add_texts(["ring"]))
 
